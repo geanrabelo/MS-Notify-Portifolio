@@ -1,0 +1,37 @@
+spring:
+  mail:
+    host: email-smtp.us-east-2.amazonaws.com
+    port: 587
+    username: AKIAYQNJSYEAOKTTM3PB
+    password: BFFZyVzfXiXZjsSZW3Ii549rvrSQTec026q0qm5Pmuir
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimout: 5000
+          timeout: 3000
+          writetimeout: 5000
+  application:
+    name: MS_Notify
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: earliest
+      group-id: payment-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.br.MS_Notify.dto"
+        spring.json.use.type.headers: false
+        spring.json.value.default.type: "com.br.MS_Notify.dto.ReceiverPaymentEvent"
+server:
+  port: 8082
