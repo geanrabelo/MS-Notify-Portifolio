@@ -10,7 +10,6 @@ public class ReceiverPaymentEvent {
 
     private String paymentId;
     private String orderId;
-    private Long customerId;
     private String email;
     private BigDecimal amount;
 
@@ -30,15 +29,6 @@ public class ReceiverPaymentEvent {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
-    }
-
-    @JsonProperty("customerId")
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
     }
 
     @JsonProperty("email")
@@ -63,7 +53,6 @@ public class ReceiverPaymentEvent {
         return "ReceiverPaymentEvent{" +
                 "paymentId='" + paymentId + '\'' +
                 ", orderId='" + orderId + '\'' +
-                ", customerId=" + customerId +
                 ", email='" + email + '\'' +
                 ", amount=" + amount +
                 '}';

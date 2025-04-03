@@ -12,10 +12,10 @@ public class Email {
     private String subject;
     private String text;
 
-    public Email(String to){
+    public Email(String to, String subject, String text){
         this.from = "geancardosorabelomota@gmail.com";
         this.to = to;
-        this.subject = "Micro service of Project Portifólio";
-        this.text = "Testing ms send email";
+        this.subject = subject;
+        this.text = text;
     }
 }
