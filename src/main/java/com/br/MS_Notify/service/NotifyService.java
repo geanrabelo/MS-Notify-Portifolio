@@ -19,6 +19,7 @@ public class NotifyService {
 
     @KafkaListener(topics = "payments", groupId = "notify-group")
     public void receivePaymenteEvent(ReceiverPaymentEvent receiverPaymentEvent) throws MessagingException {
+        System.out.println("RECEBIDO!");
         emailService.enviarEmail(new Email(receiverPaymentEvent.getEmail(),
                 "Request placed. - MS-Portfolio",
                 "Total Value: "+receiverPaymentEvent.getAmount()+
